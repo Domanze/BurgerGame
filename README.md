@@ -44,4 +44,4 @@ Simplemente abre `index.html` en tu navegador. No requiere servidor.
 
 ## Ingredientes disponibles
 
-🥩 Carne · 🥬 Lechuga · 🍅 Tomate · 🧀 Queso · 🧅 Cebolla · 🥓 Tocino · 🥒 Pepinillo · 🍳 Huevo
+🥩 Carne · 🥬 Lechuga · 🍅 Tomate · 🧀 Queso · 🧅 Cebolla
