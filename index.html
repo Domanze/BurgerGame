@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Burger Game🍔</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Boogaloo&family=Fredoka+One&family=Nunito:wght@400;600;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ══════════════════ MENÚ PRINCIPAL ══════════════════ -->
+  <div id="screen-menu" class="screen active">
+    <div class="menu-bg-deco"></div>
+    <div class="menu-content">
+      <div class="title-block">
+        <h1 class="game-title">BURGER<br><span>GAME</span></h1>
+        <p class="subtitle">¡Atrapa los ingredientes y forma el pedido!</p>
+      </div>
+      <div class="menu-card">
+        <button id="btn-play" class="btn-primary">▶ JUGAR</button>
+        <button id="btn-how" class="btn-secondary">¿ CÓMO JUGAR ?</button>
+      </div>
+      <div class="floating-ingredients" aria-hidden="true">
+        <span>🥩</span><span>🧅</span><span>🥬</span><span>🧀</span><span>🥓</span><span>🍅</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════ CÓMO JUGAR ══════════════════ -->
+  <div id="screen-howto" class="screen">
+    <div class="howto-box">
+      <h2>¿ Cómo jugar ?</h2>
+      <ul class="how-list">
+        <li><span class="hk">←  →</span>Mueve tu plato con las flechas del teclado, A/D, o arrastra con el mouse/touch</li>
+        <li><span class="hk">🍔</span>Los ingredientes caen del cielo — ¡atrápales con tu plato!</li>
+        <li><span class="hk">📋</span>El pedido aparece arriba: sigue el orden exacto de capas</li>
+        <li><span class="hk">🍞</span>El pan de abajo se pone automático, cierra el pan de arriba al final</li>
+        <li><span class="hk">⚠️</span>Si atrapas un ingrediente de más o equivocado, ¡pierdes una vida!</li>
+        <li><span class="hk">⏱️</span>Tienes 60 segundos por nivel. ¡Completa pedidos para sumar puntos!</li>
+      </ul>
+      <button id="btn-back" class="btn-secondary">← VOLVER</button>
+    </div>
+  </div>
+
+  <!-- ══════════════════ JUEGO ══════════════════ -->
+  <div id="screen-game" class="screen">
+    <div id="hud">
+      <div class="hud-cell">
+        <span class="hud-label">PUNTOS</span>
+        <span id="hud-score">0</span>
+      </div>
+      <div class="hud-cell center">
+        <span class="hud-label">TIEMPO</span>
+        <span id="hud-time">60</span>
+      </div>
+      <div class="hud-cell right">
+        <span class="hud-label">VIDAS</span>
+        <span id="hud-lives">❤️❤️❤️</span>
+      </div>
+      <div class="hud-cell right">
+        <span class="hud-label">Pausa con</span>
+        <span class="hud-pause-hint">P</span>
+      </div>
+    </div>
+
+    <div id="order-panel">
+      <div id="order-title">📋 PEDIDO</div>
+      <div id="order-list"></div>
+    </div>
+
+    <canvas id="game-canvas"></canvas>
+
+
+    <div id="feedback" class="feedback hidden"></div>
+  </div>
+
+  <!-- ══════════════════ PAUSA ══════════════════ -->
+  <div id="screen-pause" class="screen overlay">
+    <div class="pause-box">
+      <h2>⏸ PAUSA</h2>
+      <button id="btn-resume" class="btn-primary">▶ CONTINUAR</button>
+      <button id="btn-menu-from-pause" class="btn-secondary">🏠 MENÚ</button>
+    </div>
+  </div>
+
+  <!-- ══════════════════ GAME OVER ══════════════════ -->
+  <div id="screen-gameover" class="screen">
+    <div class="gameover-box">
+      <div class="go-emoji">😢</div>
+      <h2 class="go-title">GAME OVER</h2>
+      <div class="go-score-wrap">
+        <span class="go-label">PUNTUACIÓN FINAL</span>
+        <span id="go-score" class="go-score">0</span>
+      </div>
+      <div class="go-stats">
+        <div><span class="go-stat-label">Pedidos</span><span id="go-orders">0</span></div>
+        <div><span class="go-stat-label">Nivel</span><span id="go-level">1</span></div>
+      </div>
+      <button id="btn-retry" class="btn-primary">🔄 REINTENTAR</button>
+      <button id="btn-menu-go" class="btn-secondary">🏠 MENÚ</button>
+    </div>
+  </div>
+
+  <!-- ══════════════════ NIVEL ══════════════════ -->
+  <div id="screen-levelup" class="screen overlay">
+    <div class="levelup-box">
+      <div class="lu-emoji">🎉</div>
+      <h2>¡NIVEL <span id="lu-level">2</span>!</h2>
+      <p>+<span id="lu-bonus">100</span> puntos de bonus</p>
+    </div>
+  </div>
+
+  <script src="js/utils.js"></script>
+  <script src="js/input.js"></script>
+  <script src="js/player.js"></script>
+  <script src="js/renderer.js"></script>
+  <script src="js/game.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
